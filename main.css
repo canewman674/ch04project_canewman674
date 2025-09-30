@@ -1,0 +1,225 @@
+/* Colin Newman 9/29/25 */
+body {
+    display: grid;
+    /* Define your grid columns and rows here */
+    grid-template-columns: 1fr 2fr 1fr; /* Example: three columns, middle one wider */
+    grid-template-rows: auto 1fr auto; /* Example: header, main content, footer */
+    gap: 20px; /* Adjust spacing between grid items as needed */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+.image-flex {
+    display: flex;
+    /* Add flexbox properties to arrange items within this section */
+    justify-content: space-around; /* Example: distribute items evenly with space around them */
+    align-items: center; /* Example: vertically center items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+img {
+  width: 100%;
+  height: auto;
+}
+/* Styles for screens between 768px and 1024px (typical tablet range) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Apply tablet-specific styles here */
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* Example: two columns for layout */
+    gap: 20px;
+  }
+
+  .sidebar {
+    display: none; /* Example: hide sidebar on tablets */
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
+/* Styles for screens 1025px and wider */
+@media screen and (min-width: 1025px) {
+  /* Apply large screen-specific styles here */
+  .container {
+    grid-template-columns: 200px 1fr 250px; /* Example: three-column layout */
+    gap: 30px;
+  }
+
+  .sidebar {
+    display: block; /* Example: show sidebar on large screens */
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+}
+nav ul {
+  display: flex;
+  /* flex-direction: row; is the default, so it's not strictly necessary to include here. */
+  /* justify-content and align-items can be used for further alignment if needed. */
+}
+/* Default styles for larger screens (horizontal navigation) */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around; /* Or other alignment */
+}
+.navbar li a {
+  display: block; /* To allow padding/margin on links */
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) { /* Adjust breakpoint as needed */
+  .navbar ul {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;   /* Center items horizontally */
+  }
+
+  .navbar li {
+    width: 100%; /* Make list items take full width */
+    text-align: center; /* Center text within list items */
+  }
+
+  .navbar li a {
+    padding: 15px 0; /* Adjust padding for vertical layout */
+  }
+}
+/* Basic example for a horizontal navigation bar */
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-around; /* Or space-between, space-evenly */
+}
+nav li {
+  margin: 0 10px; /* Add some horizontal space between items */
+}
+/* Base styles for all screen sizes (mobile-first) */
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.main-nav {
+  background-color: #f4f4f4;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+  background-color: #f4f4f4;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover/Focus styles */
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Desktop styles applied for viewports 768px and wider */
+@media screen and (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.5rem; /* Adds spacing between items */
+    border-bottom: none;
+  }
+
+  .nav-link {
+    background-color: transparent;
+    color: #555;
+    border-bottom: none;
+    padding: 1.5rem 1rem;
+    position: relative;
+    overflow: hidden; /* For the advanced hover effect */
+  }
+
+  /* Advanced underline hover effect */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus::after {
+    transform: scaleX(1);
+  }
+}
+@media print {
+  /* 1. Hide unwanted elements */
+  nav,
+  img {
+    display: none;
+  }
+
+  /* 2. Remove non-essential styles */
+  body {
+    font-family: serif; /* Use a classic font for readability on paper */
+    background-color: #fff; /* Remove any background color or image to save ink */
+    color: #000;
+  }
+
+  /* 3. Ensure vertical layout for sections */
+  /* This targets any common horizontal layout containers */
+  section,
+  article,
+  .flex-container,
+  .grid-container {
+    display: block; /* Override any Flexbox or Grid display for a standard vertical flow */
+    float: none; /* Remove any floating behavior */
+    width: auto; /* Reset width to be full-page */
+    margin: 0;
+  }
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Header styles for mobile */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Heading 1 styles for mobile */
+h1 {
+  font-size: 2rem; /* Larger than body text, but not overwhelming */
+  margin: 0; /* Remove default margins */
+}
+
+/* Footer styles for mobile */
+footer {
+  background-color: #eee;
+  color: #666;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
