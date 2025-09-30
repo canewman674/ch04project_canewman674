@@ -1,0 +1,29 @@
+/* Colin Newman 9/29/25 */
+@media print {
+  /* 1. Hide specific tags that are not relevant for a printed document. */
+  nav,
+  img {
+    display: none !important;
+  }
+
+  /* 2. Reset common layout properties that create horizontal arrangements. */
+  /* This ensures sections print one after another vertically. */
+  body,
+  section,
+  article,
+  aside {
+    display: block !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Improve readability for the printed document. */
+  body {
+    font-family: serif; /* Better for reading on paper */
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+  }
+}
